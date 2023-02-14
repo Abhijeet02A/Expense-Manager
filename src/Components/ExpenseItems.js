@@ -1,16 +1,18 @@
 import './ExpenseItems.css'
-function ExpenseItem() {
+function ExpenseItem(props) {
+    const expenseDate = new Date(2023, 2, 13);
+    const expenseItem = "Car Insurance";
+    const expensePrice = 123.45;
+
     return (
         <div className='expense-item'>
-            <div>13 February 2023</div>
+            <div>{props.date.toISOString()}</div>
             <div className='expense-item__description'>
-                <h2>Car Insurance</h2>
-                <div className='expense-item__price'>$123.39</div>
+                <h2>{props.title}</h2>
+                <div className='expense-item__price'>${props.amount}</div>
             </div>
         </div>
     );
-//     git config --global user.email "you@example.com"
-//   git config --global user.name "Your Name"
 }
 
 export default ExpenseItem;
