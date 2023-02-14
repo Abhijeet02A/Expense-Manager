@@ -21,7 +21,6 @@ const expenses = [
     date: new Date(2021, 5, 12),
   },
 ];
-
 function App() {
   return (
     <div>
