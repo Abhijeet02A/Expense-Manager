@@ -20,6 +20,8 @@ function Expenses(props) {
         {/* Dynamic rendering of data */}
         {props.items.map((expense) => (
           <ExpenseItem
+          // Add key to render element at position
+            key={expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
