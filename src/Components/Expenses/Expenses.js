@@ -9,6 +9,11 @@ function Expenses(props) {
   const filterChangeHandler = selectedYear => {
     setFilteredYear(selectedYear);
   };
+
+  //filtering elements with current year value
+  const filteredExpenses = props.items.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  })
     
   return (
     <div>
@@ -18,7 +23,7 @@ function Expenses(props) {
           onChangeFilter={filterChangeHandler}
         />
         {/* Dynamic rendering of data */}
-        {props.items.map((expense) => (
+        {filteredExpenses.map((expense) => (
           <ExpenseItem
           // Add key to render element at position
             key={expense.id}
