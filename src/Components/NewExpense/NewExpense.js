@@ -12,16 +12,29 @@ const NewExpense = (props) => {
       id: Math.random().toString()
     };
     props.onAddExpense(expenseData);
+    setEditing(false);
   };
   
   const startEditingHandler = () => {
     setEditing(true);
   };
 
+  const stopEditingHandler = () => {
+    setEditing(false);
+  }
+
   return (
-    <div className='new-expense'>
-      {!isEditing && <button onClick={startEditingHandler}>Add Expenses</button>}
-      {isEditing && <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />}
+    <div className="new-expense">
+      {!isEditing && (
+        <button onClick={startEditingHandler}>Add Expenses</button>
+      )}
+      {isEditing && (
+        <ExpenseForm
+          onSaveExpenseData={saveExpenseDataHandler}
+          // pointer to stopEditing Handler property is passed to ExpenseFrom
+          onCancel={stopEditingHandler}
+        />
+      )}
     </div>
   );
 };
